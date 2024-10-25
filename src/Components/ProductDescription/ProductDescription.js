@@ -24,12 +24,12 @@ const ProductDescription = () => {
                     <div className='col-lg-8'>
                           <div className='bg-white p-5 mt-4 mx-auto '>
                                 <h2 className='fs-5 fw-bold'>{product.name}</h2>
-                                <hr></hr>
+                                <hr> </hr>
                                 <p style={{textAlign:'justify'}} className='fs-6 '>
                                     {product.description}
                                 </p>
-                                <hr>
-                                </hr>
+                                
+                                <hr> </hr>
                                 <small> Price: <span className='fs-5 f-w-bold'>{product.price}</span> Taka</small>
                           </div>
                     </div>
