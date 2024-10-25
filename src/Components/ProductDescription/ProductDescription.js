@@ -12,7 +12,8 @@ const ProductDescription = () => {
         <section className='bg-brand bg-brand-container'>
             <Navbar/>
             <div className='container'>
-                <h2 className='fs-4 mt-5 text-center'> Product Details </h2>
+                <h1 className='text-center mt-5 mb-3 fs-4'> Product Details
+ </h1>
                 <div className="row products-container justify-content-center align-items-center">
                     <div className='col-lg-4'>
                         <img src={product.image} className="cart-img-top width={250} img-fluid mx-auto d-block" alt={product.name} />

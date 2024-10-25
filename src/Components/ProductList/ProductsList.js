@@ -8,10 +8,10 @@ const ProductsList = () => {
         <div className='bg-brand bg-brand-container'>
             <Navbar/>
            <div className='container'>
-            <h1>
+            <h1 className='text-center mt-5 mb-3 fs-4'>
                 Products
             </h1>
-            <div className=''> 
+            <div className='row products-container justify-content-center align-items-center'> 
                 {
                     products.map(product=>{
                         return (
