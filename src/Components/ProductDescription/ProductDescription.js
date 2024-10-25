@@ -18,6 +18,14 @@ const ProductDescription = () => {
                         <img src={product.image} className="cart-img-top img-fluid mx-auto d-block" alt={product.name} />
 
                     </div>
+                    <div className='col-lg-8'>
+                          <div className=''>
+                                <h2>{product.name}</h2>
+                                <p>
+                                    {product.description}
+                                </p>
+                          </div>
+                    </div>
                 
                 
                 </div>
