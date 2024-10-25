@@ -1,0 +1,86 @@
+[
+    {
+        "id": "1",
+        "name": "Apple AirPods – Wireless Freedom, Effortless Sound",
+        "description": "Enjoy seamless connectivity with Apple AirPods. Experience premium sound, hands-free Siri access, and up to 24 hours of battery life with the wireless charging case. Lightweight and comfortable, AirPods are perfect for calls, music, and more—all in a sleek, compact design.",
+        "price": "12000",
+        "image": "/images/products/airpod.jpg"
+    },
+    {
+        "id": "2",
+        "name": "Stylish Leather Bag",
+        "description": "A premium leather bag perfect for daily use, offering a combination of style and practicality. Spacious and durable for all your essentials.",
+        "price": "5500",
+        "image": "/images/products/bag.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Refreshing Body Spray",
+        "description": "Stay fresh all day with this invigorating body spray. A long-lasting fragrance perfect for any occasion.",
+        "price": "800",
+        "image": "/images/products/body_spray.jpg"
+    },
+    {
+        "id": "4",
+        "name": "High-Resolution Camera",
+        "description": "Capture stunning moments with this high-resolution camera. Equipped with advanced features for both amateur and professional photographers.",
+        "price": "50000",
+        "image": "/images/products/camera.jpg"
+    },
+    {
+        "id": "5",
+        "name": "iPhone 14 – The Future in Your Hands",
+        "description": "Experience the next level of smartphone technology with iPhone 14. Unmatched performance, sleek design, and powerful camera features.",
+        "price": "120000",
+        "image": "/images/products/iphone.jpg"
+    },
+    {
+        "id": "6",
+        "name": "High-Performance Laptop",
+        "description": "A powerful laptop designed for both work and play. Featuring fast processing speeds, ample storage, and a sleek design.",
+        "price": "75000",
+        "image": "/images/products/laptop.jpg"
+    },
+    {
+        "id": "7",
+        "name": "Ergonomic Wireless Mouse",
+        "description": "Enjoy precision and comfort with this wireless mouse. Perfect for both gaming and professional use.",
+        "price": "1500",
+        "image": "/images/products/mouse.jpg"
+    },
+    {
+        "id": "8",
+        "name": "Custom Mugs – Make It Yours",
+        "description": "Personalize your coffee experience with our custom mugs. High-quality material and customizable designs make each mug unique.",
+        "price": "500",
+        "image": "/images/products/mugs.jpg"
+    },
+    {
+        "id": "9",
+        "name": "Stylish Running Shoes",
+        "description": "Hit the ground running with these stylish and comfortable shoes. Perfect for athletes and casual runners alike.",
+        "price": "4000",
+        "image": "/images/products/shoe.jpg"
+    },
+    {
+        "id": "10",
+        "name": "Trendy Sunglasses",
+        "description": "Protect your eyes in style with these trendy sunglasses. Offering UV protection and a sleek design for any outfit.",
+        "price": "2000",
+        "image": "/images/products/sunglass.jpg"
+    },
+    {
+        "id": "11",
+        "name": "Smart LED TV",
+        "description": "Immerse yourself in a cinematic experience with this Smart LED TV. Featuring 4K resolution and smart functionality for streaming your favorite content.",
+        "price": "60000",
+        "image": "/images/products/tv.jpg"
+    },
+    {
+        "id": "12",
+        "name": "Luxury Wrist Watch",
+        "description": "A luxury wristwatch designed to complement any outfit. Crafted with precision and elegance, it’s a must-have accessory.",
+        "price": "25000",
+        "image": "/images/products/watch.jpg"
+    }
+]
