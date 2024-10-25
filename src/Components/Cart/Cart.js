@@ -7,7 +7,7 @@ const Cart = () => {
     return (
         <div>
             <Navbar/>
-            Cart
+            cart added
             <Footer/>
         </div>
     );
