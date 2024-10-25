@@ -13,12 +13,12 @@ const ProductDescription = () => {
             <Navbar/>
             <div className='container'>
                 <h2 className='fs-4 mt-5 text-center'> Product Details </h2>
-                <div className="row">
+                <div className="row justify-content-center align-items-center">
                     <div className='col-lg-4'>
                         <img src={product.image} className="cart-img-top width={250} img-fluid mx-auto d-block" alt={product.name} />
                          <div className='d-flex justify-content-center align-items-center'>
-                            <button>Add to Cart</button>
-                            <button>Buy Now</button>
+                            <button className='btn btn-warning mt-2'>Add to Cart</button>
+                            <button className='btn btn-success mt-2 ms-2'>Buy Now</button>
                         </div> 
                     </div>
                     <div className='col-lg-8'>
