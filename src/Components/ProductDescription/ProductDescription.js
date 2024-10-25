@@ -15,15 +15,22 @@ const ProductDescription = () => {
                 <h2 className='fs-4 mt-5 text-center'> Product Details </h2>
                 <div className="row">
                     <div className='col-lg-4'>
-                        <img src={product.image} className="cart-img-top img-fluid mx-auto d-block" alt={product.name} />
-
+                        <img src={product.image} className="cart-img-top width={250} img-fluid mx-auto d-block" alt={product.name} />
+                         <div className='d-flex justify-content-center align-items-center'>
+                            <button>Add to Cart</button>
+                            <button>Buy Now</button>
+                        </div> 
                     </div>
                     <div className='col-lg-8'>
-                          <div className=''>
-                                <h2>{product.name}</h2>
-                                <p>
+                          <div className='bg-white p-5 mt-4 mx-auto '>
+                                <h2 className='fs-5 fw-bold'>{product.name}</h2>
+                                <hr></hr>
+                                <p style={{textAlign:'justify'}} className='fs-6 '>
                                     {product.description}
                                 </p>
+                                <hr>
+                                </hr>
+                                <small> Price: <span className='fs-5 f-w-bold'>{product.price}</span> Taka</small>
                           </div>
                     </div>
                 
