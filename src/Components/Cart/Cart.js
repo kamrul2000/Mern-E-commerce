@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
+import Footer from '../Shared/Navbar/Footer/Footer';
 
 
 const Cart = () => {
@@ -7,6 +8,7 @@ const Cart = () => {
         <div>
             <Navbar/>
             Cart
+            <Footer/>
         </div>
     );
 };

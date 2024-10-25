@@ -29,7 +29,7 @@ const ProductsList = () => {
                                                     <button className="btn btn-outline-dark">Details</button>
                                                 </div>
                                                 <div className="col-sm-6 my-3 mx-3">
-                                                    <button className="btn btn-outline-secondary">Cart</button>
+                                                    <button className="btn btn-outline-secondary">Buy</button>
                                                 </div>
                                             </div>
                                         </div>

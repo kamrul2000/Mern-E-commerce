@@ -16,7 +16,7 @@ const TopProducts = () => {
 
     return (
         <div>
-            <h1 style={{ fontSize: '22px', color: '#212529', fontWeight: '700' }} className='mt-3 text-center'>Top Products of This Week</h1>
+            <h1 style={{ fontSize: '22px', color: '#212529', fontWeight: '400' }} className='mt-5'>Top Products of This Week</h1>
             <div className="row products-container justify-content-center align-items-center">
                 {
                     topProducts.map((product) => {
