@@ -3,14 +3,14 @@ import Navbar from '../Shared/Navbar/Navbar';
 import products from '../../data/productsData.json'
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Shared/Navbar/Footer/Footer';
+import { addToDb } from '../../Utilities/localDb';
 
 const ProductsList = () => {
     const [cart,setCart]=useState([])
     const addToCart = (product) => {
         setCart([...cart,product])
+        addToDb(product.id);
     }
-    localStorage.setItem('cart',JSON.stringify(cart))
-    console.log(cart)
     const navigate=useNavigate();
     return (
         <div className='bg-brand bg-brand-container'>
