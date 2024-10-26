@@ -4,9 +4,11 @@ import Footer from '../Shared/Navbar/Footer/Footer';
 
 const Dashboard = () => {
     return (
-        <div>
+        <div className='bg-brand bg-brand-container'>
             <Navbar/>
-            Dashboard view
+            <div className='container mt-5'>
+                <h1 className='fs-4'>Dashboard</h1>
+            </div>
             <Footer/>
         </div>
     );

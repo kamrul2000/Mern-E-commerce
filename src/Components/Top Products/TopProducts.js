@@ -4,6 +4,9 @@ import products from '../../data/productsData.json';
 import { Link, useNavigate } from 'react-router-dom';
 
 const TopProducts = () => {
+    const addToCart = (product) => {
+        console.log(product);
+    }
     const navigate=useNavigate();
     let topProducts = [];
     while (topProducts.length < 3) {
@@ -40,7 +43,7 @@ const TopProducts = () => {
                                                 <button className="btn btn-outline-dark">Details</button>
                                             </div>
                                                 <div className="col-sm-6 my-3 mx-3">
-                                                    <button className="btn btn-outline-secondary">Cart</button>
+                                                <button onClick={() => addToCart(product)} className="btn btn-outline-secondary">Cart</button>
                                                 </div>
                                             </div>
                                         </div>

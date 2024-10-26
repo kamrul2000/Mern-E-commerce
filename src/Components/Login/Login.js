@@ -4,9 +4,11 @@ import Footer from '../Shared/Navbar/Footer/Footer';
 
 const Login = () => {
     return (
-        <div>
+        <div className='bg-brand bg-brand-container'>
             <Navbar/>
-            Login page
+            <div className='container mt-5'>
+                <h1 className='fs-4'>Login</h1>
+            </div>
             <Footer/>
         </div>
     );

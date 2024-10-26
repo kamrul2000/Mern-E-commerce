@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import products from '../../data/productsData.json'
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Shared/Navbar/Footer/Footer';
 
 const ProductsList = () => {
+    const [cart,setCart]=useState([])
+    const addToCart = (product) => {
+        setCart([...cart,product])
+    }
+    localStorage.setItem('cart',JSON.stringify(cart))
+    console.log(cart)
     const navigate=useNavigate();
     return (
         <div className='bg-brand bg-brand-container'>
@@ -35,7 +41,7 @@ const ProductsList = () => {
                                                     <button className="btn btn-outline-dark">Details</button>
                                                 </div>
                                                 <div className="col-sm-6 my-3 mx-3">
-                                                    <button className="btn btn-outline-secondary">Buy</button>
+                                                <button onClick={() => addToCart(product)} className="btn btn-outline-secondary">Buy</button>
                                                 </div>
                                             </div>
                                         </div>

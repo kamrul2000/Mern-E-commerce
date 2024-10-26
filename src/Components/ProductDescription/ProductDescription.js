@@ -7,6 +7,9 @@ import reportWebVitals from './../../reportWebVitals';
 const ProductDescription = () => {
     const { id } = useParams();
     const product=products.find(pd=>pd.id===id)
+    const addToCart=(product)=>{
+        console.log(product);
+    }
   
     return (
         <section className='bg-brand bg-brand-container'>
@@ -18,7 +21,7 @@ const ProductDescription = () => {
                     <div className='col-lg-4'>
                         <img src={product.image} className="cart-img-top width={250} img-fluid mx-auto d-block" alt={product.name} />
                          <div className='d-flex justify-content-center align-items-center'>
-                            <button className='btn btn-dark mt-2'>Add to Cart</button>
+                            <button onClick={()=>addToCart(product)} className='btn btn-dark mt-2'>Add to Cart</button>
                             <button className='btn btn-success mt-2 ms-2'>Buy Now</button>
                         </div> 
                     </div>
