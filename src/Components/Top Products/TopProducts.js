@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './products.css';
 import products from '../../data/productsData.json';
 import { Link, useNavigate } from 'react-router-dom';
+import { addToDb } from '../../Utilities/localDb';
 
 const TopProducts = () => {
-    const addToCart = (product) => {
-        console.log(product);
-    }
+    
     const navigate=useNavigate();
     let topProducts = [];
     while (topProducts.length < 3) {
@@ -16,6 +15,12 @@ const TopProducts = () => {
         if (!topProducts.includes(selectedProduct)) {
             topProducts.push(selectedProduct);
         }
+    }
+    const [cart, setCart] = useState([])
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+        addToDb(product.id);
+        navigate('/cart');
     }
 
     return (

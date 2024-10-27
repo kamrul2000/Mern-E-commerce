@@ -2,8 +2,19 @@ import React from 'react';
 import './Navbar.css';
 import logo from '../../../images/letter-k.png';
 import { NavLink } from 'react-router-dom';
+import { getStoreCart } from '../../../Utilities/localDb';
+import products from '../../../data/productsData.json'
+
 
 const Navbar = () => {
+    let savedCart = getStoreCart();
+    let cart = [];
+    for (let key in savedCart) {
+        cart.push({
+            ...products.find(pd => pd.id === key),
+            quantity: savedCart[key]
+        })
+    }
     return (
         <nav className="navbar navbar-expand-lg customize-nav">
             <div className="container">
@@ -29,13 +40,22 @@ const Navbar = () => {
                         >
                             Products
                         </NavLink>
-                        <NavLink
-                            style={({ isActive }) => ({ color: isActive ? "red" : "" })}
-                            className="nav-link"
-                            to="/cart"
-                        >
-                            Cart
-                        </NavLink>
+                        { cart.length>0 ?
+                            <NavLink
+                                style={({ isActive }) => ({ color: isActive ? "red" : "" })}
+                                className="nav-link"
+                                to="/cart"
+                            >
+                                Cart <sup className='fw-bold text-success'>({cart.reduce((a, b) => { return a + b.quantity }, 0)})</sup>
+                            </NavLink>
+                            :
+                            <NavLink
+                                style={({ isActive }) => ({ color: isActive ? "red" : "" })}
+                                className="nav-link"
+                                to="/cart"
+                            >
+                                Cart 
+                            </NavLink>}
                         <NavLink
                             style={({ isActive }) => ({ color: isActive ? "red" : "" })}
                             className="nav-link"

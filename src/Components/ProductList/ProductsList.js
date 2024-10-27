@@ -4,12 +4,18 @@ import products from '../../data/productsData.json'
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Shared/Navbar/Footer/Footer';
 import { addToDb } from '../../Utilities/localDb';
+import Swal from 'sweetalert2';
 
 const ProductsList = () => {
     const [cart,setCart]=useState([])
     const addToCart = (product) => {
         setCart([...cart,product])
         addToDb(product.id);
+        Swal.fire({
+            title: "Successful!",
+            text: `You have added ${product.name}!`,
+            icon: "success"
+        });
     }
     const navigate=useNavigate();
     return (
@@ -41,7 +47,7 @@ const ProductsList = () => {
                                                     <button className="btn btn-outline-dark">Details</button>
                                                 </div>
                                                 <div className="col-sm-6 my-3 mx-3">
-                                                <button onClick={() => addToCart(product)} className="btn btn-outline-secondary">Buy</button>
+                                                <button onClick={() => addToCart(product)} className="btn btn-outline-secondary">Cart</button>
                                                 </div>
                                             </div>
                                         </div>

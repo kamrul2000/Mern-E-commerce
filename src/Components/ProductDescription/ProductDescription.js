@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import products from '../../data/productsData.json'
 import Navbar from '../Shared/Navbar/Navbar';
 import reportWebVitals from './../../reportWebVitals';
+import { addToDb } from '../../Utilities/localDb';
+import Swal from 'sweetalert2';
 
 const ProductDescription = () => {
     const { id } = useParams();
     const product=products.find(pd=>pd.id===id)
-    const addToCart=(product)=>{
-        console.log(product);
+    const [cart, setCart] = useState([])
+    const addToCart = (product) => {
+        setCart([...cart, product])
+        addToDb(product.id);
+        Swal.fire({
+            title: "Successful!",
+            text: `You have added ${product.name}!`,
+            icon: "success"
+        });
     }
   
     return (

@@ -1,3 +1,6 @@
+import Swal from "sweetalert2";
+
+
 //manage cart
 const addToDb=id=>{
     let cart={};
@@ -24,12 +27,33 @@ const getStoreCart=()=>{
     return cart;
 }
 //Remove data
+const removeFromDb = id => {
+    let cart={};
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart=JSON.parse(storedCart);
+        }
+        delete cart[id];
+        localStorage.setItem('cart',JSON.stringify(cart));
+    Swal.fire({
+        title: "Product Removed",
+        text: `You have removed your cart product`,
+        icon: "info"
+    });
+    
+        setTimeout(()=>window.location.reload(),1000);
+    }
 
 //Delete storage
-
+const deleteShoppingCart=()=>{
+    localStorage.removeItem('cart');
+    window.location.reload();
+}
 
 
 export{
     addToDb,
-    getStoreCart
+    getStoreCart,
+    removeFromDb,
+    deleteShoppingCart
 }
