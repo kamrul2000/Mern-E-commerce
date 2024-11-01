@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import products from '../../data/productsData.json'
 import Navbar from '../Shared/Navbar/Navbar';
 import reportWebVitals from './../../reportWebVitals';
@@ -7,6 +7,7 @@ import { addToDb } from '../../Utilities/localDb';
 import Swal from 'sweetalert2';
 
 const ProductDescription = () => {
+    const navigate=useNavigate();
     const { id } = useParams();
     const product=products.find(pd=>pd.id===id)
     const [cart, setCart] = useState([])
@@ -31,7 +32,7 @@ const ProductDescription = () => {
                         <img src={product.image} className="cart-img-top width={250} img-fluid mx-auto d-block" alt={product.name} />
                          <div className='d-flex justify-content-center align-items-center'>
                             <button onClick={()=>addToCart(product)} className='btn btn-dark mt-2'>Add to Cart</button>
-                            <button className='btn btn-success mt-2 ms-2'>Buy Now</button>
+                            <button onClick={()=>navigate('/shipping')} className='btn btn-success mt-2 ms-2'>Buy Now</button>
                         </div> 
                     </div>
                     <div className='col-lg-8'>

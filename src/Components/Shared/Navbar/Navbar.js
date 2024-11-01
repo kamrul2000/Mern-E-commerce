@@ -4,6 +4,7 @@ import logo from '../../../images/letter-k.png';
 import { NavLink } from 'react-router-dom';
 import { getStoreCart } from '../../../Utilities/localDb';
 import products from '../../../data/productsData.json'
+import useAuth from '../../../hooks/useAuth';
 
 
 const Navbar = () => {
@@ -15,6 +16,7 @@ const Navbar = () => {
             quantity: savedCart[key]
         })
     }
+    const {user}=useAuth();
     return (
         <nav className="navbar navbar-expand-lg customize-nav">
             <div className="container">
@@ -46,7 +48,7 @@ const Navbar = () => {
                                 className="nav-link"
                                 to="/cart"
                             >
-                                Cart <sup className='fw-bold text-success'>({cart.reduce((a, b) => { return a + b.quantity }, 0)})</sup>
+                                Cart <sup className='fw-bold text-muted'>({cart.reduce((a, b) => { return a + b.quantity }, 0)})</sup>
                             </NavLink>
                             :
                             <NavLink
@@ -56,27 +58,33 @@ const Navbar = () => {
                             >
                                 Cart 
                             </NavLink>}
-                        <NavLink
-                            style={({ isActive }) => ({ color: isActive ? "red" : "" })}
-                            className="nav-link"
-                            to="/login"
-                        >
-                            Login
-                        </NavLink>
-                        <NavLink
-                            style={({ isActive }) => ({ color: isActive ? "red" : "" })}
-                            className="nav-link"
-                            to="/profile"
-                        >
-                            Profile
-                        </NavLink>
-                        <NavLink
-                            style={({ isActive }) => ({ color: isActive ? "red" : "" })}
-                            className="nav-link"
-                            to="/dashboard"
-                        >
-                            Dashboard
-                        </NavLink>
+                        {
+                            !user?.email && <NavLink
+                                style={({ isActive }) => ({ color: isActive ? "red" : "" })}
+                                className="nav-link"
+                                to="/login"
+                            >
+                                Login
+                            </NavLink>
+                        }
+                        {
+                            user?.email && <NavLink
+                                style={({ isActive }) => ({ color: isActive ? "red" : "" })}
+                                className="nav-link"
+                                to="/profile"
+                            >
+                                Profile
+                            </NavLink>
+                        }
+                        {
+                            user?.email && <NavLink
+                                style={({ isActive }) => ({ color: isActive ? "red" : "" })}
+                                className="nav-link"
+                                to="/dashboard"
+                            >
+                                Dashboard
+                            </NavLink>
+                        }
                     </div>
                 </div>
             </div>

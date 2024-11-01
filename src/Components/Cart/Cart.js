@@ -11,7 +11,7 @@ const Cart = () => {
     const [disabled, setDisabled] = useState(true);
 
     let savedCart = getStoreCart();
-    let cart = [];  // Change from const to let
+    let cart = [];  
     for (let key in savedCart) {
         cart.push({
             ...products.find(pd => pd.id === key),
@@ -21,9 +21,9 @@ const Cart = () => {
 
     useEffect(() => {
         if (cart.length > 0) {
-            setDisabled(false);  // Enable the button if cart has items
+            setDisabled(false);  
         } else {
-            setDisabled(true);  // Disable the button if the cart is empty
+            setDisabled(true);  
         }
     }, [cart]);
 
@@ -86,11 +86,11 @@ const Cart = () => {
                             <h2 className='fs-5 text-center'>Sub Total: {cart.reduce((a, b) => { return a + b.quantity }, 0)} item(s)</h2>
                             <h3 className='fs-5 text-center'>Price: {cart.reduce((a, b) => { return a + b.quantity * b.price }, 0)} Taka</h3>
                         </div>
-                        <div style={{ border: '1px solid lightgray' }} className='py-2 mt-2'>
+                        <div onClick={handleClick} style={{ border: '1px solid lightgray' }} className='py-2 mt-2'>
                             <button
                                 id='btn_checkout'
-                                onClick={handleClick}
-                                className={`btn mx-auto d-block ${cart.length > 0 ? 'btn-success' : 'btn-secondary'}`}
+                                
+                                className={`btn mx-auto d-block ${cart.length > 0 ? 'btn-dark p-2' : 'btn-secondary'}`}
                                 disabled={disabled}
                             >
                                 Proceed to Checkout
