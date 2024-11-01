@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Cart.css'
 import Navbar from '../Shared/Navbar/Navbar';
 import Footer from '../Shared/Navbar/Footer/Footer';
 import { Link, useNavigate } from 'react-router-dom';

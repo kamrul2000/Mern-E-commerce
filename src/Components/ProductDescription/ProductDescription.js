@@ -20,7 +20,11 @@ const ProductDescription = () => {
             icon: "success"
         });
     }
-  
+    
+    const handleClick=(product)=>{
+        addToCart(product);
+        navigate('/shipping')
+    }
     return (
         <section className='bg-brand bg-brand-container'>
             <Navbar/>
@@ -32,7 +36,7 @@ const ProductDescription = () => {
                         <img src={product.image} className="cart-img-top width={250} img-fluid mx-auto d-block" alt={product.name} />
                          <div className='d-flex justify-content-center align-items-center'>
                             <button onClick={()=>addToCart(product)} className='btn btn-dark mt-2'>Add to Cart</button>
-                            <button onClick={()=>navigate('/shipping')} className='btn btn-success mt-2 ms-2'>Buy Now</button>
+                            <button onClick={()=>handleClick(product)} className='btn btn-success mt-2 ms-2'>Buy Now</button>
                         </div> 
                     </div>
                     <div className='col-lg-8'>

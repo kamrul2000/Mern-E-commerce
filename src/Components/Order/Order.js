@@ -3,6 +3,7 @@ import Navbar from '../Shared/Navbar/Navbar';
 import useAuth from '../../hooks/useAuth';
 import {getStoreCart } from '../../Utilities/localDb';
 import products from '../../data/productsData.json';
+import './Order.css'
 
 
 const Order = () => {
@@ -33,34 +34,76 @@ const Order = () => {
     return (
         <section className='bg-brand bg-brand-container py-2'>
             <Navbar />
-            <div className="container mt-5">
+            <div className="container mt-5 order-container">
                 <h1 className='fs-4 text-center'>Order Summary</h1>
-                <h2 className='fs-5 fw-bold'>Shipping Details</h2>
-                <h3 className='fs-6'>Name: {displayName}</h3>
-                <h3 className='fs-6'>Email: {email}</h3>
-                {
-                    shippingDetails ? (
-                        <p>Address: {shippingDetails.address}, {shippingDetails.city}, {shippingDetails.postalCode}, {shippingDetails.country}</p>
-                    ) : (
-                        <p>No shipping details available.</p>
-                    )
-                }
+                                <div className="row">
 
-                <div className='col-md-8 col-sm-12'>
+                <div className="col-lg-8 col-md-12 col-sm-12 px-3">
+                    <h2 className='fs-4 mt-5'>Shipping Details</h2>
+                    <h3 className='fs-6'>Name: {displayName}</h3>
+                    <h3 className='fs-6'>Email: {email}</h3>
+                        {
+                            shippingDetails ? (
+                                <p>Address: {shippingDetails.address}, {shippingDetails.city}, {shippingDetails.postalCode}, {shippingDetails.country}</p>
+                            ) : (
+                                <p>No shipping details available.</p>
+                            )
+                        }
+                    
                     <hr />
+                    <h2 className='fs-4'>Payment Mode</h2>
+                    <p>Method: {paymentMode}</p>
+                    <hr />
+                    
+                    <h2 className='fs-5'>Order Items</h2>
+                    {
+                        cart.map(item =>
+                            <div key={item.id} className="px-2">
+                                <div className="d-flex justify-content-between align-items-center mt-3 col-sm-12">
+
+                                    <div className="col-sm-1">
+                                        <img src={item.image} className='img-fluid' width={60} alt={item.name} />
+                                    </div>
+
+                                    <div className="col-sm-4">
+                                        <p className='text-center pt-3'>{item.name}</p>
+                                    </div>
+
+                                    <div className="d-flex justify-content-end col-sm-7">
+                                        <p className='text-center pt-3'>{item.quantity} x {item.price} = {item.quantity * item.price}</p>
+                                    </div>
+                                </div>
+                                <div className="">
+                                    <hr />
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
 
-                <h2 className='fs-5'>Payment Mode</h2>
-                <p>Method: {paymentMode || 'No payment method selected.'}</p>
+                <div className="col-lg-4 d-none d-lg-block px-3 mt-5">
 
-                <div className='col-md-8 col-sm-12'>
-                    <hr />
+                    <div style={{ border: '1px solid lightgrey' }} className="p-2">
+                        <h2 className='fs-5 text-center'>Sub Total: {cart.reduce((a, b) => { return a + (b.quantity); }, 0)} Item(s)</h2>
+                        <h3 className='fs-5 text-center'>Price: {cart.reduce((a, b) => a + b.price * b.quantity, 0)} Taka</h3>
+                    </div>
+
+                    <div style={{ border: '1px solid lightgrey' }} className="py-2">
+                        <button id='btn_checkout' className='btn btn-dark mx-auto d-block'>Pay Now</button>
+                    </div>
                 </div>
 
-                <h2 className='fs-5'>Order Item</h2>
-                {
-                    cart.map(item=><li>{item.name}</li>)
-                }
+                <div style={{ boxShadow: '0 3px 10px 3px #0003' }} className="col-sm-12 d-lg-none fixed-bottom bg-brand py-3">
+                <div style={{ border: '1px solid lightgrey' }} className="p-2">
+                        <h2 className='fs-5 text-center'>Sub Total: {cart.reduce((a, b) => { return a + (b.quantity); }, 0)} Item(s)</h2>
+                        <h3 className='fs-5 text-center'>Price: {cart.reduce((a, b) => a + b.price * b.quantity, 0)} Taka</h3>
+                    </div>
+
+                    <div style={{ border: '1px solid lightgrey' }} className="py-2">
+                        <button id='btn_checkout' className='btn btn-dark mx-auto d-block'>Pay Now</button>
+                    </div>
+                </div>
+                </div>
 
 
             </div>
